@@ -118,4 +118,34 @@ $('#download-cv').click(function() {
     link.remove();
 });
 
+//---------------------SCRIPT ------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const navbar = document.querySelector('.navbar');
+    const menuItems = document.querySelectorAll('.navbar a'); // All menu items
+
+    // Show navbar and change icons when the menu icon is clicked
+    menuIcon.addEventListener('click', () => {
+        navbar.classList.add('active'); // Show the navbar
+        menuIcon.style.display = 'none'; // Hide menu icon
+        closeIcon.style.display = 'block'; // Show close icon
+    });
+
+    // Hide navbar and change icons when the close icon is clicked
+    closeIcon.addEventListener('click', () => {
+        navbar.classList.remove('active'); // Hide the navbar
+        menuIcon.style.display = 'block'; // Show menu icon
+        closeIcon.style.display = 'none'; // Hide close icon
+    });
+
+    // Hide navbar and show only menu icon when clicking on a menu item
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navbar.classList.remove('active'); // Hide the navbar
+            menuIcon.style.display = 'block'; // Show menu icon
+            closeIcon.style.display = 'none'; // Hide close icon
+        });
+    });
+});
 

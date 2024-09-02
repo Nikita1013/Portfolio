@@ -24,7 +24,7 @@ html {
 }
 
 body {
-    background:  var(--bg-color);
+    background: var(--bg-color);
     color: var(--text-color);
 }
 
@@ -69,11 +69,42 @@ section {
     color: var(--main-color);
 }
 
+/* Styles for the menu icon and close icon */
 #menu-icon {
     font-size: 3.6rem;
     color: var(--text-color);
-    display: none;
+    display: block; /* Show the hamburger icon by default */
 }
+
+#close-icon {
+    font-size: 3rem;
+    color: var(--text-color);
+    display: none; /* Hide the close icon by default */
+}
+
+/* Navbar styles */
+.navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 3%;
+    background: var(--bg-color);
+    border-top: .1rem solid rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+    display: none; /* Hidden by default */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.navbar.active {
+    display: flex; /* Show when active */
+}
+
+/* Other existing styles... */
 
 .home {
     display: flex;
@@ -90,12 +121,11 @@ section {
     margin-bottom: 2rem;
 }
 
-
 span {
     color: var(--main-color);
 }
 
-.home-content h1{
+.home-content h1 {
     font-size: 5.6rem;
     font-weight: 700;
     line-height: 1.3;
@@ -107,13 +137,13 @@ span {
 }
 
 @keyframes floatImage {
-    0%{
+    0% {
         transform: translateY(0);
     }
-    50%{
+    50% {
         transform: translateY(-2.4rem);
     }
-    100%{
+    100% {
         transform: translateY(0);
     }
 }
@@ -214,8 +244,6 @@ span {
     margin: 1rem 0 2rem;
 }
 
-
-
 .skills h2 {
     margin-bottom: 5rem;
 }
@@ -252,7 +280,7 @@ span {
     font-size: 2.6rem;
 }
 
-.skills.box p {
+.skills-box p {
     font-size: 1.6rem;
     margin: 1rem 0 2rem;
 }
@@ -261,9 +289,8 @@ span {
     background: var(--snd-bg-color);
 }
 
-
 .portfolio h2 {
-    margin-bottom:  4rem;
+    margin-bottom: 4rem;
 }
 
 .portfolio-container {
@@ -273,7 +300,7 @@ span {
     gap: 2.5rem;
 }
 
-.portfolio-container .portfolio-box{
+.portfolio-container .portfolio-box {
     position: relative;
     border-radius: 2rem;
     box-shadow: 0 0 1rem var(--bg-color);
@@ -343,198 +370,87 @@ span {
 .contact form {
     max-width: 78rem;
     margin: 1rem auto;
-    text-align:center;
-    margin-bottom: 3rem;
+    text-align: center;
 }
 
-.contact form .input-box {
+.contact form .form-group {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    gap: 2rem;
 }
 
-.contact form .input-box input,
+.contact form .form-group div {
+    flex: 1;
+}
+
+.contact form input,
 .contact form textarea {
     width: 100%;
     padding: 1.5rem;
+    border-radius: 1rem;
+    border: .2rem solid rgba(0,0,0,.2);
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
     font-size: 1.6rem;
-    color:  var(--text-color);
-    background-color: var(--snd-bg-color);
-    border-radius: .8rem;
-    margin: .7rem 0;
+    transition: .3s ease;
 }
 
-.contact form .input-box input {
-    width: 49%;
+.contact form input:focus,
+.contact form textarea:focus {
+    border-color: var(--main-color);
 }
 
-.contact form textarea {
-    resize: none;
-}
-
-.contact form.btn {
+.contact form .btn {
     margin-top: 2rem;
-    cursor: pointer;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem 9%;
-    background: var(--snd-bg-color);
-}
-
-.footer-text {
-    font-size: 1.6rem;
-}
-
-.footer-iconTop a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: .8rem 1rem;
+    display: inline-block;
+    padding: 1rem 2.8rem;
     background: var(--main-color);
-    border-radius: .8rem;
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
     transition: .5s ease;
 }
 
-.footer-iconTop a:hover {
-    box-shadow: 0 0 1rem var(--main-color);
+.contact form .btn:hover {
+    box-shadow: none;
 }
 
-.footer-iconTop a i {
-    font-size: 2.4rem;
-    color: var(--snd-bg-color);
+.footer {
+    background: var(--snd-bg-color);
+    padding: 2rem 0;
 }
 
-/* BreakPoint */
-
-@media (max-width: 1200px){
-    html{
-        font-size: 55%;
-    }
+.footer .footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
 
-@media (max-width: 991px) {
-    .header{
-        padding: 2rem 3%;
-    }
-
-    section{
-        padding: 10rem 3%;
-    }
-
-    .education{
-        padding: 7rem;
-    }
-
-    .skills {
-        padding: 7rem;
-    }
-
-    .portfolio {
-        padding-bottom: 7rem;
-    }
-
-    .contact {
-        min-height: auto;
-    }
-
-    .footer {
-        padding: 2rem 3%;
-    }
+.footer .footer-content a {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    margin: 0 1rem;
 }
 
-@media(max-width: 768px){
-    #menu-icon {
-        display: block;
-    }
+.footer .footer-content a:hover {
+    color: var(--main-color);
+}
 
+/* Responsive styles */
+@media(max-width: 768px) {
     .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0,0,0,.2);
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-        display: none;
-    }
-
-    .navbar.active {
-        display: black;
+        padding: 1rem;
     }
 
     .navbar a {
-        display: block;
         font-size: 2rem;
-        margin: 3rem 0;
+        margin: 2rem 0;
     }
 
-    .home {
-        flex-direction: column;
-    }
-    .home-content h3 {
-        font-size: 2.6rem;
-    }
-
-    .home-content h1 {
-        font-size: 5rem;
-    }
-    .home-content p {
-        width: 50%;
-    }
-
-    .home-content {
-        order: 2;
-    }
-
-    .home-img img {
-        width: 70vw;
-        margin-top: 4rem;
-    }
-
-    .education {
-        flex-direction: column;
-    }
-
-
-    .skills h2 {
-        margin-bottom: 3rem;
-    }
-
-    .portfolio h2 {
-        margin-bottom: 3rem;
-    }
-
-    .portfolio-container {
-        grid-template-columns: repeat(2 ,1fr);
-    }
-}
-
-@media(max-width: 617px){
     .portfolio-container {
         grid-template-columns: 1fr;
     }
-
-    .home-img img {
-        width: 80vw;
-        margin-top: 8rem;
-    }
-
 }
-
-@media (max-width: 450px) {
-    html {
-        font-size: 50%;
-    }
-
-    .contact form .input-box input {
-        width: 100%;
-    }
-    
-}
-
