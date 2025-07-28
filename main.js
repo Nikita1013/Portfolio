@@ -93,7 +93,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#dotnet').click(function() {
-        window.location.href = 'https://github.com/Nikita1013/DotNet';
+        window.location.href = 'https://github.com/Nikita1013/Machine-Learning-with-Python';
     })
 })
 
